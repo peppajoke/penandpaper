@@ -16,5 +16,6 @@ namespace PenAndPaper.Entities
             _name = name;
             _hp = hp;
             _level = level;
+       }
     }
 }

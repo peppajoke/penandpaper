@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PenAndPaper.Builders;
 using PenAndPaper.Menus.Commands;
 
 namespace PenAndPaper.Menus.Commands
@@ -11,17 +12,18 @@ namespace PenAndPaper.Menus.Commands
         {
             if (!arguments.Any())
             {
-                Console.WriteLine("Please specify pc (player character) or npc (non player character)");
+                Console.WriteLine("ERROR: Must specify new pc (player character) or new npc (non player character)");
                 return true;
             }
 
             var type = arguments.FirstOrDefault();
-
+            var pcBuilder = new PlayerCharacterBuilder();
             switch(type)
             {
+                
                 case "pc":
-
-                   break;
+                    var character = pcBuilder.Build();
+                    break;
                 case "npc":
 
                     break;

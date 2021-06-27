@@ -24,8 +24,8 @@ namespace PenAndPaper.Builders
 
         public string InputText(string message, bool required = true, int maxLength = 25)
         {
-            Console.WriteLine(message);
-            Console.Write(( required ? "(required) " : " ") + "max length: " + maxLength);
+            Console.Write(message);
+            Console.WriteLine(( required ? " (required) " : " ") + "max length: " + maxLength);
             var response = Console.ReadLine();
             if (required && String.IsNullOrEmpty(response))
             {
@@ -43,7 +43,7 @@ namespace PenAndPaper.Builders
 
         public bool InputBool(string message)
         {
-            Console.Write(message + " y/n");
+            Console.WriteLine(message + " y/n");
             var response = Console.ReadLine().ToUpper();
             if (response == "Y" || response == "YES")
             {
@@ -59,7 +59,7 @@ namespace PenAndPaper.Builders
 
         private void X()
         {
-            Console.WriteLine("Try again?");
+            Console.WriteLine("I didn't understand that. Try again?");
         }
     }
 }

@@ -11,7 +11,7 @@ namespace PenAndPaper.Entities
         public int _hp;
         public int _level;
 
-        public AbilityScores AbilityScores;
+        public AbilityScores AbilityScores = new AbilityScores();
         public string _race;
 
         public Gender _gender;
