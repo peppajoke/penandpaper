@@ -1,4 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using PenAndPaper.Entities;
+using static PenAndPaper.Entities.AbilityScores;
 
 namespace PenAndPaper.Builders
 {
@@ -41,6 +45,19 @@ namespace PenAndPaper.Builders
             return response;
         }
 
+        public string InputText(string message, IEnumerable<string> whitelist)
+        {
+            Console.WriteLine(message);
+            Console.Write(" (options: " + String.Join(',' ,whitelist) );
+            var response = Console.ReadLine();
+            if (!whitelist.Contains(response))
+            {
+                X();
+                return InputText(message, whitelist);
+            }
+            return response;
+        } 
+
         public bool InputBool(string message)
         {
             Console.WriteLine(message + " y/n");
@@ -55,6 +72,12 @@ namespace PenAndPaper.Builders
             }
             X();
             return InputBool(message);
+        }
+
+        public AbilityScore InputAbility(Mortal mortal)
+        {
+            var abilities = mortal.AbilityScores.Abilities.Select(x => x.ToString());
+            return (AbilityScores.AbilityScore)Enum.Parse(typeof(AbilityScores.AbilityScore), InputText("What ability score is this tied to?", abilities));
         }
 
         private void X()

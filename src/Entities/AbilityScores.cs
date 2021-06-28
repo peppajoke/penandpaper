@@ -13,6 +13,8 @@ namespace PenAndPaper.Entities
         public int Intelligence => _values[AbilityScore.Intelligence];
         public int Charisma => _values[AbilityScore.Charisma];
 
+        public IEnumerable<AbilityScore> Abilities => _values.Keys;
+
         private Dictionary<AbilityScore, int> _values = new Dictionary<AbilityScore, int>() 
         {
             { AbilityScore.Strength, 8 },
