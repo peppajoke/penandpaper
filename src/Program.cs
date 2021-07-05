@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using PenAndPaper.Menus.Commander;
-using PenAndPaper.Menus.Commands;
+using LineCommander;
+using PenAndPaper.Commands;
 
 namespace PenAndPaper
 {
@@ -14,8 +14,9 @@ namespace PenAndPaper
             Console.WriteLine("Type a command to get started. Say help (or just h for short) if you need help at any point.");
 
             var commands = new List<ICommand>() { new New() };
-            var commander = new Commander(commands, "stfu noob");
-            await commander.Listen();
+            var commander = new Commander();
+            await commander.AddCommands(commands);
+            await commander.ListenForCommands();
         }
     }
 }

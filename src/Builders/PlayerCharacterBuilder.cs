@@ -59,8 +59,6 @@ namespace PenAndPaper.Builders
             {
                 var meleeWeaponName = InputText("What's the melee weapon called?");
                 var ability = InputAbility(character);
-                
-
             }
 
             // autoattack

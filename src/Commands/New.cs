@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using LineCommander;
 using PenAndPaper.Builders;
-using PenAndPaper.Menus.Commands;
 
-namespace PenAndPaper.Menus.Commands
+namespace PenAndPaper.Commands
 {
     public class New : ICommand
     {
@@ -39,6 +39,11 @@ namespace PenAndPaper.Menus.Commands
         public string Description()
         {
             return "Create something new! Like a player character(pc) or non playable character (npc)!";
+        }
+
+        public IEnumerable<string> MatchingBaseCommands()
+        {
+            return new List<string> () { "new" };
         }
     }
 }
